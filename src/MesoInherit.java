@@ -23,8 +23,9 @@ public class MesoInherit extends MesoAbstract{
 	
 	private String stID = "";
 	
-	public MesoInherit(MesoStation stn) {
+	public MesoInherit(MesoStation stn) throws IOException {
 		this.stID = stn.getStID();
+		readFile();
 	}
 	
 	@Override
