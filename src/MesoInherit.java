@@ -30,8 +30,21 @@ public class MesoInherit extends MesoAbstract{
 	
 	@Override
 	public int[] calAverage() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] avgs = new int[3];
+		double avg = 0;
+		int sum = 0;
+		
+		char[] stnChars = stID.toCharArray();
+		for (int index = 0; index < stnChars.length; ++index) {
+			sum += (int)stnChars[index];
+		}
+		avg = (double)sum / stnChars.length;
+		
+		avgs[0] = (int) Math.ceil(avg);
+		avgs[1] = (int) Math.floor(avg);
+		avgs[2] = (int) Math.round(avg);
+		
+		return avgs;
 	}
 
 	@Override
