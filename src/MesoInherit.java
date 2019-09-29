@@ -83,9 +83,11 @@ public class MesoInherit extends MesoAbstract{
 	
 	public String[] getStationsForLetter(char letter) {
 		String[] retStations = new String[getNoStationsForLetter(letter)];
+		int count = 0;
 		for (int index = 0; index < stations.length; ++index) {
 			if (stations[index].charAt(0) == letter) {
-				retStations[index] = stations[index];
+				retStations[count] = stations[index];
+				++count;
 			}
 		}
 		return retStations;
