@@ -13,7 +13,7 @@ public class LetterAvg {
 	
 	@Override
 	public String toString() {
-		String output = "They are:\n";
+		String output = "\nThey are:";
 		String[] stations = new String[0];
 		try {
 			stations = new MesoInherit(new MesoStation("NRMN")).getStationsForLetter(letter);
@@ -22,7 +22,7 @@ public class LetterAvg {
 		}
 		
 		for (int index = 0; index < stations.length; ++index) {
-			output += stations[index] + "\n";
+			output += "\n" + stations[index];
 		}
 		return output;
 	}
