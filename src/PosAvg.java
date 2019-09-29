@@ -8,8 +8,8 @@ public class PosAvg {
 	private String[] avgStations = new String[4];
 	
 	public PosAvg(String stID) throws IOException {
-		MesoInherit temp = new MesoInherit(new MesoStation(stID));
 		this.stID = stID;
+		MesoInherit temp = new MesoInherit(new MesoStation(this.stID));
 		this.index = temp.getIndex();
 		this.avgStations = temp.getAvgStations(this.index);
 	}
