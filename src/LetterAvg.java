@@ -4,7 +4,7 @@ public class LetterAvg {
 	private char letter = 0;
 	
 	public LetterAvg(char letter) {
-		this.letter = letter
+		this.letter = letter;
 	}
 	
 	public int numberOfStationWithLetterAvg() throws IOException {
