@@ -70,6 +70,26 @@ public class MesoInherit extends MesoAbstract{
 		avgStations[3] = stations[index + 2];
 		return avgStations;
 	}
+	
+	public int getNoStationsForLetter(char letter) {
+		int counter = 0;
+		for (int index = 0; index < stations.length; ++index) {
+			if (stations[index].charAt(0) == letter) {
+				++counter;
+			}
+		}
+		return counter;
+	}
+	
+	public String[] getStationsForLetter(char letter) {
+		String[] retStations = new String[getNoStationsForLetter(letter)];
+		for (int index = 0; index < stations.length; ++index) {
+			if (stations[index].charAt(0) == letter) {
+				retStations[index] = stations[index];
+			}
+		}
+		return retStations;
+	}
 
 	/**
 	 * Reads the Mesonet.txt file and inputs the results into the stations array. Helper method for the default constructor.
