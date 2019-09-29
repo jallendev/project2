@@ -29,15 +29,34 @@ public class MesoInherit extends MesoAbstract{
 	}
 	
 	@Override
-	int[] calAverage() {
+	public int[] calAverage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	char letterAverage() {
+	public char letterAverage() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	public int getIndex() {
+		int index = 0;
+		for (int count = 0; count < stations.length; ++count) {
+			if (stations[count].equals(stID)) {
+				index = count;
+			}
+		}
+		return index;
+	}
+	
+	public String[] getAvgStations(int index) {
+		String[] avgStations = new String[4];
+		avgStations[0] = stations[index - 2];
+		avgStations[1] = stations[index - 1];
+		avgStations[2] = stations[index + 1];
+		avgStations[3] = stations[index + 2];
+		return avgStations;
 	}
 
 	/**
