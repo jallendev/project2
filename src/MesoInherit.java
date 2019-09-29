@@ -59,15 +59,15 @@ public class MesoInherit extends MesoAbstract{
 				index = count;
 			}
 		}
-		return index;
+		return index + 1;
 	}
 	
 	public String[] getAvgStations(int index) {
 		String[] avgStations = new String[4];
-		avgStations[0] = stations[index - 2];
-		avgStations[1] = stations[index - 1];
-		avgStations[2] = stations[index + 1];
-		avgStations[3] = stations[index + 2];
+		avgStations[0] = stations[index - 3];
+		avgStations[1] = stations[index - 2];
+		avgStations[2] = stations[index];
+		avgStations[3] = stations[index + 1];
 		return avgStations;
 	}
 	

@@ -21,6 +21,6 @@ public class PosAvg {
 	
 	@Override
 	public String toString() {
-		return "This index is average of " + avgStations[0] + " and " + avgStations[1] + ", " + avgStations[2] + " and " + avgStations[3] + ", and so on.";
+		return "This index is average of " + avgStations[1] + " and " + avgStations[2] + ", " + avgStations[0] + " and " + avgStations[3] + ", and so on.";
 	}
 }
