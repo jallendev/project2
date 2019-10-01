@@ -20,14 +20,27 @@ public class MesoInherit extends MesoAbstract{
 	 * An array to hold station IDs read from the Mesonet.txt file. Initialized with a value of 10.
 	 */
 	private String[] stations = new String[INITIAL_STATION_SIZE];
-	
+	/**
+	 * The stID String holds the code for the station given by the Driver class to use for execution.
+	 */
 	private String stID = "";
 	
+	/**
+	 * Constructor for MesoInherit. Sets the stID and reads the Mesonet.txt file with the use of helper methods.
+	 * 
+	 * @param stn The station given by the Driver class to use for execution
+	 * @throws IOException If readFile() fails to read Mesonet.txt.
+	 */
 	public MesoInherit(MesoStation stn) throws IOException {
 		this.stID = stn.getStID();
 		readFile();
 	}
 	
+	/**
+	 * Calculates the average ASCII value of the given station ID.
+	 * 
+	 * @return Returns an int array with the ceil of the average in [0], the floor of the average in [1], and the rounded value of the average in [2]
+	 */
 	@Override
 	public int[] calAverage() {
 		int[] avgs = new int[3];
@@ -46,12 +59,22 @@ public class MesoInherit extends MesoAbstract{
 		
 		return avgs;
 	}
-
+	
+	/**
+	 * Converts the returned average of calAverage() to its char representation.
+	 * 
+	 * @return A char representation of the ASCII average found in calAverage()
+	 */
 	@Override
 	public char letterAverage() {
 		return (char)calAverage()[2];
 	}
 	
+	/**
+	 * Finds the index of the station ID in the Mesonet.txt file.
+	 * 
+	 * @return An int representing the index or "row" of the station ID in the Mesonet.txt file.
+	 */
 	public int getIndex() {
 		int index = 0;
 		for (int count = 0; count < stations.length; ++count) {
@@ -62,6 +85,12 @@ public class MesoInherit extends MesoAbstract{
 		return index + 1;
 	}
 	
+	/**
+	 * Find the four stations adjacent to the station at the given index
+	 * 
+	 * @param index The index to use for adjacent stations.
+	 * @return The four stations adjacent to the station at the given index given in a String[]
+	 */
 	public String[] getAvgStations(int index) {
 		String[] avgStations = new String[4];
 		avgStations[0] = stations[index - 3];
@@ -71,6 +100,12 @@ public class MesoInherit extends MesoAbstract{
 		return avgStations;
 	}
 	
+	/**
+	 * Reads the stations array to find the number of stations beginning with the given letter
+	 * 
+	 * @param letter The letter to search
+	 * @return The int number of stations in Mesonet.txt beginning with the given letter
+	 */
 	public int getNoStationsForLetter(char letter) {
 		int counter = 0;
 		for (int index = 0; index < stations.length; ++index) {
@@ -81,6 +116,12 @@ public class MesoInherit extends MesoAbstract{
 		return counter;
 	}
 	
+	/**
+	 * Creates a list with all stations beginning with the given letter.
+	 * 
+	 * @param letter The letter to search
+	 * @return The String[] list of all stations beginning with the given letter
+	 */
 	public String[] getStationsForLetter(char letter) {
 		String[] retStations = new String[getNoStationsForLetter(letter)];
 		int count = 0;
